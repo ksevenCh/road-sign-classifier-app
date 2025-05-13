@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Распознаватель знаков</string>
+    <string name="frame_overlay">frame overlay</string>
+</resources>

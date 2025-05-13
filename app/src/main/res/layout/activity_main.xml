@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/wholePage"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/cameraContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintDimensionRatio="3:4">
+
+        <com.otaliastudios.cameraview.CameraView
+            android:id="@+id/backCamera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:keepScreenOn="true"
+            app:cameraMode="picture"
+            app:cameraFacing="back"
+            app:cameraWhiteBalance="auto"
+            app:cameraAudio="off"
+            app:cameraGesturePinch="zoom"
+            android:soundEffectsEnabled="false"/>
+
+        <ImageView
+            android:id="@+id/cameraFrame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cam_frame"
+            android:layout_marginStart="62dp"
+            android:layout_marginEnd="62dp"
+            android:layout_marginTop="125dp"
+            android:layout_marginBottom="125dp"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/frame_overlay"/>
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infoLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/cameraContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#217DB5"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/infoPanel"
+            android:layout_width="match_parent"
+            android:layout_height="131dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/shape_rounded_container"
+            android:backgroundTint="@color/white"
+            android:weightSum="9"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/Instructions1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:text="Наведите камеру на знак, который хотите распознать."
+                android:layout_marginStart="42dp"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:layout_marginEnd="42dp"
+                android:layout_marginTop="25dp"
+                android:lineHeight="18sp"
+                android:textAlignment="center"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/Instructions2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="29dp"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:text="Знак должен находиться в рамке."
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:visibility="visible"/>
+
+            <TextView
+                android:id="@+id/processingImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:text="Идёт обработка изображения... "
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/res1_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:text="Обнаружен знак:"
+                android:layout_weight="3"
+                android:gravity="bottom"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/res2_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:text="TODO"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/res3_prob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/good_prob"
+                android:fontFamily="@font/nunito_semi_bold"
+                android:text="Вероятность: "
+                android:layout_weight="3"
+                android:gravity="top"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <android.widget.Button
+            android:id="@+id/cameraButton"
+            android:contentDescription="Camera"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/infoPanel"
+            android:background="@drawable/ic_cam_button"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
