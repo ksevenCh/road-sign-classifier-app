@@ -15,7 +15,8 @@ import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
 
 fun loadModel(context: Context):MappedByteBuffer {
-    val fileDescriptor = context.assets.openFd("model1.tflite")
+    //val fileDescriptor = context.assets.openFd("model1.tflite")
+    val fileDescriptor = context.assets.openFd("model3.tflite")
     val inputSt = FileInputStream(fileDescriptor.fileDescriptor)
     val fileChannel = inputSt.channel
     return fileChannel.map(
@@ -26,7 +27,8 @@ fun loadModel(context: Context):MappedByteBuffer {
 }
 
 fun classifyImage(bitmap: Bitmap, interpreter: Interpreter): Pair<Int, Float> {
-    val imageSize = 50
+    //val imageSize = 50
+    val imageSize = 224
 
     val imageProcessor = ImageProcessor.Builder()
         .add(ResizeOp(imageSize, imageSize, ResizeOp.ResizeMethod.BILINEAR))

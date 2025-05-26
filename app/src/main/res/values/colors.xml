@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="bad_prob">#BF1111</color>
     <color name="good_prob">#169A2A</color>
+    <color name="main_color">#217DB5</color>
 </resources>
